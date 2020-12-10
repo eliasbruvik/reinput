@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { TouchableOpacity } from 'react-native'
+import { ViewPropTypes } from 'react-native'
 
 import { BASE_UNIT, BLACK, FONT, noop } from '../services/constants'
 import pick from '../services/pick'
@@ -7,6 +7,14 @@ import * as ErrorProps from '../Error/props'
 import * as IconProps from '../Icon/props'
 import * as LabelProps from '../Label/props'
 import * as UnderlineProps from '../Underline/props'
+
+let ViewPropTypesVar
+
+if (ViewPropTypes) {
+  ViewPropTypesVar = ViewPropTypes
+} else {
+  ViewPropTypesVar = View.propTypes
+}
 
 export const propTypes = {
   // ...TouchableOpacity.propTypes, // Breaks IDE auto-completion
@@ -60,5 +68,5 @@ export const defaultProps = {
 }
 
 export const pickTouchableOpacityProps = (props) => {
-  return pick(props, Object.keys(TouchableOpacity.propTypes))
+  return pick(props, Object.keys(ViewPropTypesVar))
 }
