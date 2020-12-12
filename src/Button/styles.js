@@ -1,6 +1,10 @@
-export const input = ({ error, errorColor }) => ({
-  color: error ? errorColor : undefined
-})
+export const input = ({ error, errorColor }) => {
+  if (error) {
+    return ({
+      color: errorColor
+    })
+  }
+}
 
 export const hidden = () => ({
   height: 0,
