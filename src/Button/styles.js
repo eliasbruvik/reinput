@@ -1,5 +1,5 @@
 export const input = ({ error, errorColor }) => ({
-  color: error ? errorColor ; "#000"
+  color: error ? errorColor : "#000"
 })
 
 
